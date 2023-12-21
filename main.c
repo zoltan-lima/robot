@@ -1,18 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "robot.h"
-
-typedef struct {
-    int markers;
-    int obstacles;
-    direction facing;
-} args;
-
-typedef struct {
-    map* m;
-    robot* r;
-} ptrs;
+#include "main.h"
 
 args parseArgs(int argc, char** argv) {
     args a;
@@ -23,7 +12,7 @@ args parseArgs(int argc, char** argv) {
         int markers = atoi(argv[1]);
         int obstacles = atoi(argv[2]);
 
-        if (markers > 0 && obstacles > 0) {
+        if (markers > 0 && obstacles > 0 && (markers + obstacles) <= 99) {
             a.markers = markers;
             a.obstacles = obstacles;
         }
